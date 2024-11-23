@@ -40,7 +40,7 @@ Sphere spheres[] = {
     {{-5, -2, -15}, 2, {0.7, 0.7, 1.0}, {0, 0, 0}, 0},         // diffuse Ball (left)
     {{5, -2, -15}, 2, {0.9, 0.76, 0.46}, {0, 0, 0}, 2},        // refractive Ball (right)
     {{0, -2, -20}, 2, {0.9, 0.9, 0.9}, {0, 0, 0}, 1},          // reflective Ball (center)
-    {{0, 20, -30}, 3, {0, 0, 0}, {3, 3, 3}, 0},                // light
+    {{0, 20, -30}, 4, {0, 0, 0}, {3, 3, 3}, 0},                // light
 };
 
 int sphere_count = sizeof(spheres) / sizeof(Sphere);
@@ -121,7 +121,7 @@ Vec trace(Ray r, int depth) {
 }
 
 int main() {
-	int width = 1600, height = 900, samples = 100;
+	int width = 1600, height = 900, samples = 1;
 	Vec camera = vec(0, 0, 10);
 	Vec cx = vec(width * FOV / height, 0, 0); // aspect ratio
 	Vec cy = norm(cross(cx, vec(0, 0, -1)));
