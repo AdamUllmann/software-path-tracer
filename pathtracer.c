@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 #include "vec.h"
 
+//#define PI 0.000001  // interesting things happen :)
 #define PI 3.14159265358979323846
 #define clamp(x) ((x) < 0 ? 0 : ((x) > 1 ? 1 : (x)))
 #define toInt(x) ((int)(pow(clamp(x), 1 / 2.2) * 255 + 0.5))
@@ -121,7 +123,9 @@ Vec trace(Ray r, int depth) {
 }
 
 int main() {
-	int width = 1600, height = 900, samples = 1;
+	srand48(time(NULL));
+
+	int width = 1600, height = 900, samples = 100;
 	Vec camera = vec(0, 0, 10);
 	Vec cx = vec(width * FOV / height, 0, 0); // aspect ratio
 	Vec cy = norm(cross(cx, vec(0, 0, -1)));
