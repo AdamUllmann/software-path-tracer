@@ -125,7 +125,7 @@ Vec trace(Ray r, int depth) {
 int main() {
 	srand48(time(NULL));
 
-	int width = 1600, height = 900, samples = 100;
+	int width = 800, height = 600, samples = 1000;
 	Vec camera = vec(0, 0, 10);
 	Vec cx = vec(width * FOV / height, 0, 0); // aspect ratio
 	Vec cy = norm(cross(cx, vec(0, 0, -1)));
